@@ -1,19 +1,20 @@
-
-import type { NextPage } from 'next';
-import Head from 'next/head';
-import { PasswordGenerator } from '../components/Password';
+import type { NextPage } from "next";
+import Head from "next/head";
+import { PasswordGenerator } from "../components/Password";
+import { PrimaryLayout } from "../features/Header/PrimaryLayout";
 
 const PasswordGeneratorPage: NextPage = () => {
   return (
-    <div className="password-generator-page">
-      <Head>
-        <title>Генератор паролей</title>
-      </Head>
-      <h1>Генератор паролей</h1>
-      <PasswordGenerator />
-    </div>
+    <PrimaryLayout>
+      <div className="password-generator-page">
+        <Head>
+          <title>Генератор паролей</title>
+        </Head>
+        <h1>Генератор паролей</h1>
+        <PasswordGenerator />
+      </div>
+    </PrimaryLayout>
   );
 };
 
 export default PasswordGeneratorPage;
-

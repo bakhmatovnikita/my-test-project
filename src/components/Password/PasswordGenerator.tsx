@@ -1,17 +1,10 @@
-
-import { useState } from 'react';
-import { copyText } from '../../utils/copyText';
-
-interface PasswordOptions {
-  useUppercase: boolean;
-  useLowercase: boolean;
-  useNumbers: boolean;
-  useSymbols: boolean;
-  avoidRepetition: boolean;
-}
+import { useState } from "react";
+import { copyText } from "../../utils/copyText";
+import { PasswordOptions } from "./types";
+import { CopyOutlined } from "@ant-design/icons";
 
 export const PasswordGenerator = () => {
-  const [passwordLength, setPasswordLength] = useState('');
+  const [passwordLength, setPasswordLength] = useState("");
   const [options, setOptions] = useState<PasswordOptions>({
     useUppercase: true,
     useLowercase: true,
@@ -21,25 +14,28 @@ export const PasswordGenerator = () => {
   });
   const [generatedPasswords, setGeneratedPasswords] = useState<string[]>([]);
 
-  const handleOptionChange = (option: keyof PasswordOptions, value: boolean) => {
-    setOptions(prev => ({ ...prev, [option]: value }));
+  const handleOptionChange = (
+    option: keyof PasswordOptions,
+    value: boolean
+  ) => {
+    setOptions((prev) => ({ ...prev, [option]: value }));
   };
 
   const generatePasswords = () => {
     const chars = [];
-    if (options.useUppercase) chars.push(...'ABCDEFGHIJKLMNOPQRSTUVWXYZ');
-    if (options.useLowercase) chars.push(...'abcdefghijklmnopqrstuvwxyz');
-    if (options.useNumbers) chars.push(...'0123456789');
-    if (options.useSymbols) chars.push('%', '*', ')', '?', '@', '#', '$', '~');
+    if (options.useUppercase) chars.push(..."ABCDEFGHIJKLMNOPQRSTUVWXYZ");
+    if (options.useLowercase) chars.push(..."abcdefghijklmnopqrstuvwxyz");
+    if (options.useNumbers) chars.push(..."0123456789");
+    if (options.useSymbols) chars.push("%", "*", ")", "?", "@", "#", "$", "~");
 
     const passwords: string[] = [];
 
     for (let i = 0; i < 5; i++) {
-      let password = '';
+      let password = "";
       for (let j = 0; j < parseInt(passwordLength); j++) {
         let charIndex = Math.floor(Math.random() * chars.length);
         password += chars[charIndex];
-        
+
         if (options.avoidRepetition && password.includes(chars[charIndex])) {
           j--;
         }
@@ -63,13 +59,15 @@ export const PasswordGenerator = () => {
             placeholder="Введите число"
           />
         </label>
-        
+
         <div className="options">
           <label>
             <input
               type="checkbox"
               checked={options.useUppercase}
-              onChange={(e) => handleOptionChange('useUppercase', e.target.checked)}
+              onChange={(e) =>
+                handleOptionChange("useUppercase", e.target.checked)
+              }
             />
             Использовать прописные буквы
           </label>
@@ -78,7 +76,9 @@ export const PasswordGenerator = () => {
             <input
               type="checkbox"
               checked={options.useLowercase}
-              onChange={(e) => handleOptionChange('useLowercase', e.target.checked)}
+              onChange={(e) =>
+                handleOptionChange("useLowercase", e.target.checked)
+              }
             />
             Использовать строчные буквы
           </label>
@@ -87,7 +87,9 @@ export const PasswordGenerator = () => {
             <input
               type="checkbox"
               checked={options.useNumbers}
-              onChange={(e) => handleOptionChange('useNumbers', e.target.checked)}
+              onChange={(e) =>
+                handleOptionChange("useNumbers", e.target.checked)
+              }
             />
             Использовать цифры
           </label>
@@ -96,16 +98,20 @@ export const PasswordGenerator = () => {
             <input
               type="checkbox"
               checked={options.useSymbols}
-              onChange={(e) => handleOptionChange('useSymbols', e.target.checked)}
+              onChange={(e) =>
+                handleOptionChange("useSymbols", e.target.checked)
+              }
             />
             Использовать символы: %, *, ), ?, @, #, $, ~
           </label>
 
           <label>
-            <input
+            <Inp
               type="checkbox"
               checked={options.avoidRepetition}
-              onChange={(e) => handleOptionChange('avoidRepetition', e.target.checked)}
+              onChange={(e) =>
+                handleOptionChange("avoidRepetition", e.target.checked)
+              }
             />
             Избегать повторения символов
           </label>
@@ -119,7 +125,7 @@ export const PasswordGenerator = () => {
         {generatedPasswords.map((password, index) => (
           <div key={index} className="password-item">
             <span>{password}</span>
-            <button onClick={() => copyText(password)}>Копировать</button>
+            <CopyOutlined onClick={() => copyText(password)} />
           </div>
         ))}
       </div>

@@ -95,7 +95,8 @@ header {
   width: 100%;
   max-width: 1200px;
 
-  .input-block, .generated-passwords {
+  .input-block,
+  .generated-passwords {
     flex-basis: 45%;
     background-color: #f0f0f0;
     padding: 20px;
@@ -169,7 +170,8 @@ header {
     flex-direction: column;
   }
 
-  .input-block, .generated-passwords {
+  .input-block,
+  .generated-passwords {
     flex-basis: 100%;
     margin-bottom: 20px;
   }
@@ -179,9 +181,13 @@ header {
   flex-direction: column;
   align-items: center;
   padding: 20px;
+
+  .content {
+    display: flex;
+  }
 }
 
-.description-block {
+.description {
   background-color: #f0f0f0;
   padding: 20px;
   margin-bottom: 20px;
@@ -199,75 +205,58 @@ h1 {
   max-width: 400px;
   margin-bottom: 20px;
 
-  .display {
-    background-color: #fff;
-    padding: 15px;
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
-    font-size: 24px;
-    line-height: 30px;
-    text-align: right;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-
-    span:first-child {
-      color: #000;
-    }
-
-    span:last-child {
-      color: #006621;
-      font-weight: bold;
-    }
+  button {
+    width: 3em;
+    height: 3em;
+    font-size: 1.5em;
+    border: none;
+    border-radius: 0.5em;
+    margin: 0.3em;
   }
 
-  .keyboard {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 5px;
-    background-color: #f0f0f0;
-    padding: 15px;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
-    overflow-x: auto;
+  button:hover {
+    cursor: pointer;
+  }
 
-    button {
-      background-color: #e0e0e0;
-      color: #333;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
+  .wrapper {
+    min-width: 340px;
+    background-color: black;
+    border-radius: 1em;
+    padding: 1em;
+  }
 
-      &:hover {
-        background-color: #d0d0d0;
-      }
-    }
+  .orange {
+    background-color: #ff9500;
+    color: white;
+  }
+  .grey-light {
+    background-color: #3b3d41;
+    color: white;
+  }
+  .grey-number {
+    background-color: #1e1f21;
+    color: white;
+  }
+  .grey-zero {
+    width: 6.5em;
+    background-color: #1e1f21;
+    color: white;
+  }
 
-    .top-row,
-    .bottom-row {
-      grid-template-columns: repeat(4, 1fr);
-    }
-
-    button:nth-child(4),
-    button:nth-child(8),
-    button:nth-child(12),
-    button:nth-child(16) {
-      background-color: #ffa500;
-      color: #fff;
-    }
-
-    button:nth-child(1),
-    button:nth-child(5),
-    button:nth-child(9),
-    button:nth-child(13),
-    button:nth-child(17) {
-      background-color: #808080;
-      color: #fff;
-    }
+  .resultado {
+    color: white;
+    display: flex;
+    justify-content: flex-end; /* Ou 'right' = o resultado seria o mesmo */
+    margin-right: 1em;
+    font-size: 3.5em;
   }
 }
 
 @media (max-width: 768px) {
   .calculator-page {
+    flex-direction: column;
+  }
+  .content {
     flex-direction: column;
   }
 
@@ -276,4 +265,3 @@ h1 {
     margin-bottom: 20px;
   }
 }
-

@@ -1,7 +1,7 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import { PasswordGenerator } from "../components/Password";
-import { PrimaryLayout } from "../features/Header/PrimaryLayout";
+import PrimaryLayout from "../features/Header/PrimaryLayout/PrimaryLayout";
 
 const PasswordGeneratorPage: NextPage = () => {
   return (

@@ -1,7 +1,7 @@
 import { Space } from "antd";
 import React, { useState } from "react";
 
-export const Calculator = () => {
+const Calculator = () => {
   const [num, setNum] = useState(0);
   const [oldNum, setOldNum] = useState(0);
   const [operator, setOperator] = useState();
@@ -117,3 +117,4 @@ export const Calculator = () => {
     </div>
   );
 };
+export default Calculator;

@@ -1,9 +1,9 @@
-import { Layout, Spin } from "antd";
-import { DefaultLayout } from "../DefaultLayout/DefaultLayout";
-import { PrimaryLayoutHeader } from "./PrimaryLayoutHeader/PrimaryLayoutHeader";
+import { Layout } from "antd";
 import { PrimaryLayoutProps } from "./types";
+import DefaultLayout from "../DefaultLayout/DefaultLayout";
+import PrimaryLayoutHeader from "./PrimaryLayoutHeader/PrimaryLayoutHeader";
 
-export const PrimaryLayout = (props: PrimaryLayoutProps) => {
+const PrimaryLayout = (props: PrimaryLayoutProps) => {
   const { children, ...rest } = props;
 
   return (
@@ -13,3 +13,4 @@ export const PrimaryLayout = (props: PrimaryLayoutProps) => {
     </DefaultLayout>
   );
 };
+export default PrimaryLayout;

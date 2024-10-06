@@ -1,7 +1,7 @@
 import { Layout, Space } from "antd";
-import { Header } from "../../../../components/Header";
+import Header from "../../../../components/Header/Header";
 
-export const PrimaryLayoutHeader = () => {
+const PrimaryLayoutHeader = () => {
   return (
     <Layout.Header>
       <Space>
@@ -10,3 +10,4 @@ export const PrimaryLayoutHeader = () => {
     </Layout.Header>
   );
 };
+export default PrimaryLayoutHeader;

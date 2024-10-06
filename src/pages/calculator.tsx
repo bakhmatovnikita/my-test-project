@@ -1,7 +1,7 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import { Calculator } from "../components/Calculator";
-import { PrimaryLayout } from "../features/Header/PrimaryLayout";
+import PrimaryLayout from "../features/Header/PrimaryLayout/PrimaryLayout";
+import Calculator from "../components/Calculator/Calculator";
 
 const CalculatorPage: NextPage = () => {
   return (

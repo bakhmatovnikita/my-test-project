@@ -1,7 +1,7 @@
 import { Layout } from "antd";
 import { DefaultLayoutProps } from "../PrimaryLayout/types";
 
-export const DefaultLayout = (props: DefaultLayoutProps) => {
+const DefaultLayout = (props: DefaultLayoutProps) => {
   const { children, ...rest } = props;
 
   return (
@@ -10,3 +10,4 @@ export const DefaultLayout = (props: DefaultLayoutProps) => {
     </div>
   );
 };
+export default DefaultLayout;
